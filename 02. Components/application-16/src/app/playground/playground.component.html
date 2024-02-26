@@ -1,0 +1,23 @@
+<div [class]="playGroundClass">
+    <p>playground works!</p>
+
+    <img [attr.src]="imgUrl" alt="">
+
+    <div>
+        <span>Install iso is</span><span [class.hide]="isClicked"> 2,9 GB</span>
+        <button (click)="showClick($event)">Show</button>
+    </div>
+
+    <div>
+        <input type="text" placeholder="Linux name" #linuxInput />
+        <button (click)="inputHandle(linuxInput.value)">Show input in console</button>
+    </div>
+
+    <div [attr.data-show01]="'test01'">
+        This is testing custom data attribute
+    </div>
+
+    <div [style.background]="colorValue">
+        Input property and color example background of this div should be {{ colorValue }}
+    </div>
+</div>

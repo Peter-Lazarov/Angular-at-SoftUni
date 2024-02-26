@@ -1,0 +1,13 @@
+<p>contacts works!</p>
+
+<ul>
+    <li *ngFor="let employee of employees; index as i">
+        {{i}} {{employee.name}}
+    </li>
+</ul>
+
+<p *ngIf="employees.length > 0">Yes, at company have employees</p>
+<p *ngIf="employees.length == 0">No, we have no employees</p>
+
+<button (click)="handleClick($event)">Click</button>
+
