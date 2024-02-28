@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+
+<app-user-list [users]="userServiceInstance.usersAll"/>
+
+<div>
+    <input type="text" placeholder="name" #inputName>
+    <input type="text" placeholder="age" #inputAge>
+    <button (click)="setUser(inputName, inputAge)">Add User</button>
+</div>
+
+<p>{{test5}}</p>
+<p>{{test6}}</p>
+<p>{{test7}}</p>
