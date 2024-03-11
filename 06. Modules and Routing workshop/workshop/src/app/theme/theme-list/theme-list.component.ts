@@ -8,11 +8,11 @@ import { UserService } from 'src/app/user/user.service';
   templateUrl: './theme-list.component.html',
   styleUrls: ['./theme-list.component.css']
 })
-export class ThemeListComponent implements OnInit{
+export class ThemeListComponent implements OnInit {
   themes: Theme[] = [];
   isLoading: boolean = true;
 
-  constructor(private api: ApiService, private userService: UserService) {}
+  constructor(private api: ApiService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.api.getThemes().subscribe((themes) => {
@@ -24,5 +24,19 @@ export class ThemeListComponent implements OnInit{
 
   get isLogged(): boolean {
     return this.userService.isLogged;
+  }
+
+  get userId(): string {
+    return this.userService.user?.id || '';
+  }
+
+  isSubscribed(theme: Theme) {
+    const isSubscribedUser = theme.subscribers.find((s) => { 
+      return s === this.userService.user?.id || '' 
+    });
+    //console.log(theme.subscribers);
+    //console.log(!!isSubscribedUser);
+
+    return !!isSubscribedUser;
   }
 }

@@ -12,6 +12,7 @@ export interface User {
 }
 
 export interface UserForAuthentication {
+    id: string,
     firstName: string;
     email: string;
     phoneNumber: string;
