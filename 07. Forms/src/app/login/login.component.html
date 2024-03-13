@@ -1,1 +1,21 @@
 <p>login works!</p>
+
+<div routerLink="/home">/home</div>
+<h1>Login</h1>
+
+<!-- Template driven -->
+<form #loginForm="ngForm" (ngSubmit)="formSubmit(loginForm)">
+    <div class="form-gorup">
+        <label for="email">email</label>
+        <input type="text" name="email" id="email" ngModel />
+    </div>
+
+    <div class="form-gorup">
+        <label for="password">password</label>
+        <input type="text" name="password" id="password" ngModel />
+    </div>
+
+    <button>Login</button>
+</form>
+
+

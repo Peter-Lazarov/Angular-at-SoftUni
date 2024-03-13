@@ -1,0 +1,15 @@
+<p>item works!</p>
+
+<form #itemForm="ngForm" (ngSubmit)="itemFormSubmit()">
+    <div class="form-gorup">
+        <label for="itemName">itemName</label>
+        <input type="text" name="itemName" id="itemName" ngModel />
+    </div>
+
+    <div class="form-gorup">
+        <label for="itemDescription">itemDescription</label>
+        <input type="text" name="itemDescription" id="itemDescription" ngModel />
+    </div>
+
+    <button>Save item</button>
+</form>
