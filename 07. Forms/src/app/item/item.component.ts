@@ -7,19 +7,24 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent {
-  @ViewChild('itemForm') itemForm: NgForm | undefined;
+  @ViewChild('itemForm') currentForm: NgForm | undefined;
 
   itemFormSubmit() {
-    if (!this.itemForm) {
+    if (!this.currentForm) {
       return;
     }
     
-    const form = this.itemForm;
-    console.log(form);
-
+    const form = this.currentForm;
     
-    const { email, password } = form?.value;
+    if(form?.invalid){
+      console.log('Form is invalid');
+      return;
+    }
     
-    form.setValue({ email: '', password: '' });
+    console.log(form.value);
+    
+    //const { email, password } = form?.value;
+    
+    form.setValue({ itemName: '', itemDescription: '' });
   }
 }

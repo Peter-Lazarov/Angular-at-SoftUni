@@ -3,3 +3,18 @@
 <div routerLink="/home">/home</div>
 
 
+<form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+    <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" name="email" id="email" formControlName="email" />
+        <span *ngIf="registerForm.get('email')?.errors?.['required']">email is required</span>
+    </div>
+
+    <div class="form-gorup">
+        <label for="password">password</label>
+        <input type="text" name="password" id="password" formControlName="password" />
+        <span *ngIf="registerForm.get('password')?.errors?.['minlength']">password should be at least {{registerForm.get('password')?.errors?.['minlength'].requiredLength}}</span>
+    </div>
+
+    <button>Register</button>
+</form>

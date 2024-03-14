@@ -8,8 +8,15 @@
 
     <div class="form-gorup">
         <label for="itemDescription">itemDescription</label>
-        <input type="text" name="itemDescription" id="itemDescription" ngModel />
-    </div>
+        <input type="text" name="itemDescription" id="itemDescription" 
+        ngModel 
+        required
+        #descriptionModel="ngModel"
+        />
+        <span *ngIf="descriptionModel.errors?.['required']" class="red">description is required</span>
 
+        <span *ngIf="descriptionModel.touched && descriptionModel.errors?.['required']" class="yellow">touched and required</span>
+    </div>
+    
     <button>Save item</button>
 </form>
